@@ -1,5 +1,10 @@
-require('dotenv').config()
-const server = require('./app.js');
-const PORT = process.env.PORT || 3001
+require("dotenv").config();
+const { conn } = require("./db.js");
+const server = require("./app.js");
+const PORT = 3001;
 
-server.listen(PORT, () => {console.log(`listening on port ${PORT}`)})
+conn.sync({ force: false }).then(() => {
+  server.listen(PORT, () => {
+    console.log("%s listening at 3001"); // eslint-disable-line no-console
+  });
+});
