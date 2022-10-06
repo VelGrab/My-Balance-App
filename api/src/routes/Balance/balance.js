@@ -9,7 +9,7 @@ router.get("/income/:id", async (req, res) => {
 
   try {
     const balance = await Balance.findAll({
-      attributes: ["income", "date", "concept", "id"],
+      attributes: ["income", "date", "concept", "id", "userId"],
       where: {
         userId: id,
       },
@@ -30,7 +30,7 @@ router.get("/expense/:id", async (req, res) => {
 
   try {
     const balance = await Balance.findAll({
-      attributes: ["expense", "date", "concept", "id"],
+      attributes: ["expense", "date", "concept", "id", "userId"],
       where: {
         userId: id,
       },
