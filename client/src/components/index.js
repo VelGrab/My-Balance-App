@@ -4,3 +4,5 @@ export { default as Header } from './Header';
 export { default as Register } from './Register';
 export { default as Login } from './Login';
 export { default as Balance } from './Balance';
+export { default as IncomeModal } from './IncomeModal';
+export { default as ExpenseModal } from './ExpenseModal';

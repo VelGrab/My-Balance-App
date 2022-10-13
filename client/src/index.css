@@ -19,3 +19,9 @@ body {
 ::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
+.category-name {
+  font-size: 0.8rem;
+  margin: 0.5rem 0;
+  line-height: 0rem;
+}
