@@ -3,14 +3,14 @@ const router = express.Router();
 const { Balance } = require("../../../db.js");
 
 /* A route that is going to be used to get the income of a user. */
-router.get("/income/:id", async (req, res) => {
-  const { id } = req.params;
+router.get("/income/:userId", async (req, res) => {
+  const { userId } = req.params;
 
   try {
     const balance = await Balance.findAll({
-      attributes: ["income", "date", "concept", "id", "userId"],
+      attributes: ["income", "date", "concept", "id", "userId", "comment"],
       where: {
-        userId: id,
+        userId,
       },
     });
     if (balance) {
@@ -24,14 +24,14 @@ router.get("/income/:id", async (req, res) => {
 });
 
 /* A route that is going to be used to get the expense of a user. */
-router.get("/expense/:id", async (req, res) => {
-  const { id } = req.params;
+router.get("/expense/:userId", async (req, res) => {
+  const { userId } = req.params;
 
   try {
     const balance = await Balance.findAll({
-      attributes: ["expense", "date", "concept", "id", "userId"],
+      attributes: ["expense", "date", "concept", "id", "userId", "comment"],
       where: {
-        userId: id,
+        userId,
       },
     });
     if (balance) {
@@ -45,17 +45,18 @@ router.get("/expense/:id", async (req, res) => {
 });
 
 /* Creating a new income balance. */
-router.post("/income/:id", async (req, res) => {
-  const { id } = req.params;
+router.post("/income/:userId", async (req, res) => {
+  const { userId } = req.params;
 
-  const { income, concept, date } = req.body;
+  const { income, concept, date, comment } = req.body;
 
   try {
     const incomeBalance = await Balance.create({
       income,
       concept,
+      comment,
       date,
-      userId: id,
+      userId,
     });
     res.status(200).json(incomeBalance);
   } catch (error) {
@@ -64,17 +65,18 @@ router.post("/income/:id", async (req, res) => {
 });
 
 /* Creating a new expense balance. */
-router.post("/expense/:id", async (req, res) => {
-  const { id } = req.params;
+router.post("/expense/:userId", async (req, res) => {
+  const { userId } = req.params;
 
-  const { expense, concept, date } = req.body;
+  const { expense, concept, date, comment } = req.body;
 
   try {
     const expenseBalance = await Balance.create({
       expense,
       concept,
+      comment,
       date,
-      userId: id,
+      userId,
     });
     res.status(200).json(expenseBalance);
   } catch (error) {
@@ -82,12 +84,51 @@ router.post("/expense/:id", async (req, res) => {
   }
 });
 
-router.put("/", async (req, res) => {
-  res.send("Ok");
+/* Updating the balance of a user. */
+router.put("/:userId", async (req, res) => {
+  const { userId } = req.params;
+
+  const { id, income, expense, concept, date, comment } = req.body;
+
+  try {
+    const expenseBalance = await Balance.update(
+      {
+        income,
+        expense,
+        concept,
+        date,
+        comment,
+      },
+      {
+        where: {
+          id,
+          userId,
+        },
+      }
+    );
+    res.status(200).json(expenseBalance);
+  } catch (error) {
+    res.status(400).send(error);
+  }
 });
 
-router.delete("/", async (req, res) => {
-  res.send("Ok");
+/* Deleting the balance of a user. */
+router.delete("/:userId", async (req, res) => {
+  const { userId } = req.params;
+
+  const { id } = req.body;
+
+  try {
+    const expenseBalance = await Balance.destroy({
+      where: {
+        id,
+        userId,
+      },
+    });
+    res.status(200).json(expenseBalance);
+  } catch (error) {
+    res.status(400).send(error);
+  }
 });
 
 module.exports = router;

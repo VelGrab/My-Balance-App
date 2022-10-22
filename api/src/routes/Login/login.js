@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { User } = require("../../../db.js");
+const generateToken = require("../../utils/generateToken")
 const bcrypt = require("bcrypt");
+const { User } = require("../../../db.js");
 
 /* This is a post request to login users. */
 router.post("/", async (req, res) => {
@@ -17,6 +18,7 @@ router.post("/", async (req, res) => {
         res.status(200).json({
           _id: user.id,
           email: user.email,
+          token: generateToken(user.id)
         });
       }
     } else {
