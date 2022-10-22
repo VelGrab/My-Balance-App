@@ -1,6 +1,7 @@
 import React from "react";
 import { Stack, IconButton, Typography, Box } from "@mui/material";
 import { Link } from "react-router-dom";
+import logo from '../assets/finanzas.png'
 import LoginIcon from "@mui/icons-material/Login";
 import AppRegistrationIcon from "@mui/icons-material/AppRegistration";
 
@@ -18,7 +19,7 @@ const Header = () => {
       }}>
         <Link to="/">
           <img
-            src="https://i.postimg.cc/VsbP9Yz9/bolsa-de-dinero.png"
+            src={logo}
             alt="logo"
             height={90}
           />

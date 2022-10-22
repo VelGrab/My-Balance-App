@@ -25,6 +25,7 @@ export const style = {
   bgcolor: "background.paper",
   border: "2px solid #7a10eb83",
   boxShadow: 24,
+  borderRadius: "0.4rem",
   p: 4,
 };
 
@@ -85,4 +86,26 @@ export const boxInsideExpense = {
   alignItems: "center",
   flexDirection: "column",
   margin: "0.2rem",
+};
+
+/*
+  Login Styles
+*/
+
+export const buttonLogin = {
+  width: "100%",
+  marginBottom: "1rem",
+  backgroundColor: "#19ca5d",
+  color: "#fff",
+  "&:hover": {
+    backgroundColor: "#12eb65",
+  },
+};
+
+export const boxLogin = {
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  height: "60vh",
 };
