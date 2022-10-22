@@ -2,6 +2,23 @@ const express = require("express");
 const router = express.Router();
 const { Balance } = require("../../../db.js");
 
+
+router.get("/:userId", async (req, res) => {
+  const { userId } = req.params
+
+  try {
+    const balance = await Balance.findAll({
+      attributes: ["income", "expense", "date", "concept", "id", "userId", "comment"],
+      where: {
+        userId
+      }
+    });
+    res.status(200).json(balance)
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
+
 /* A route that is going to be used to get the income of a user. */
 router.get("/income/:userId", async (req, res) => {
   const { userId } = req.params;
@@ -80,6 +97,7 @@ router.post("/expense/:userId", async (req, res) => {
     });
     res.status(200).json(expenseBalance);
   } catch (error) {
+    console.log(error)
     res.status(400).send(error);
   }
 });
