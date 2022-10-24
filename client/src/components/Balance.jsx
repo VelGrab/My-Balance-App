@@ -7,6 +7,10 @@ import { animated, useSpring } from "@react-spring/web";
 
 const Balance = () => {
   const [balance, setBalance] = useState(0);
+  const [openIncome, setOpenIncome] = useState(false);
+  const [openExpense, setOpenExpense] = useState(false);
+  const handleOpenIncome = () => setOpenIncome(true);
+  const handleOpenExpense = () => setOpenExpense(true);
 
   const userId = localStorage.getItem("user");
   const id = JSON.parse(userId);
@@ -40,11 +44,6 @@ const Balance = () => {
 
     return () => clearInterval(interval);
   }, []);
-
-  const [openIncome, setOpenIncome] = useState(false);
-  const [openExpense, setOpenExpense] = useState(false);
-  const handleOpenIncome = () => setOpenIncome(true);
-  const handleOpenExpense = () => setOpenExpense(true);
 
   return (
     <Box>
