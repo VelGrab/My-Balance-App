@@ -1,13 +1,6 @@
-export const boxContIncome = {
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  flexDirection: "column",
-  margin: "0.2rem",
-};
 // Styles for Balance
 
-export const style = {
+export const styleModal = {
   position: "absolute",
   top: "50%",
   left: "50%",
@@ -41,7 +34,8 @@ export const containerBalance = {
   width: {
     xs: "80%",
     sm: "80%",
-    md: "35%",
+    md: "60%",
+    lg: "45%",
   },
   height: {
     xs: "50vh",
@@ -49,9 +43,10 @@ export const containerBalance = {
     md: "55vh",
   },
   background: "#7a10eb83",
-  marginTop: "2rem",
+  mt: "2rem",
   borderRadius: "2%",
   border: "1px solid #fff",
+  boxShadow: "2px 2px 5px #000",
 };
 
 export const textFieldIncome = {
@@ -63,16 +58,16 @@ export const textFieldIncome = {
   },
 };
 
-/* STYLES IN MODAL EXPENSE */
+/* STYLES IN MODAL EXPENSE AND INCOME */
 
-export const formStyleExpense = {
+export const formStyleExpInc = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
 };
 
-export const boxExpenseContainer = {
+export const boxExpIncContainer = {
   width: "100%",
   display: "flex",
   maxHeight: "100vh",
@@ -80,7 +75,7 @@ export const boxExpenseContainer = {
   justifyContent: "center",
 };
 
-export const boxInsideExpense = {
+export const boxInsideExpInc = {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -89,10 +84,10 @@ export const boxInsideExpense = {
 };
 
 /*
-  Login Styles
+  Login and Register Styles
 */
 
-export const buttonLogin = {
+export const buttonLogReg = {
   width: "100%",
   marginBottom: "1rem",
   backgroundColor: "#19ca5d",
@@ -102,10 +97,125 @@ export const buttonLogin = {
   },
 };
 
-export const boxLogin = {
+export const boxLogReg = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
   height: "60vh",
+};
+
+/*
+  Header Styles
+*/
+
+export const boxHeader = {
+  width: "75%",
+  display: "flex",
+  justifyContent: "flex-end",
+};
+
+export const iconBtnHeader = {
+  borderRadius: "0",
+  "&:hover": { backgroundColor: "#26d4b7" },
+};
+
+/*
+  Transactions Styles
+*/
+
+export const boxColorInside = {
+  height: {
+    xs: "8rem",
+    sm: "3rem",
+    md: "3rem",
+  },
+  display: "flex",
+  flexWrap: "wrap",
+  flexDirection: {
+    xs: "column",
+    sm: "column",
+    md: "row",
+  },
+  justifyContent: {
+    xs: "flex-start",
+    sm: "flex-start",
+    md: "space-between",
+  },
+  alignItems: {
+    xs: "center",
+    sm: "center",
+    md: "flex-start",
+  },
+  p: 1,
+  flexWrap: "wrap",
+  textAlign: "center",
+  mt: "1rem",
+  boxShadow: "0 0 5px #000",
+};
+
+export const boxTextTrans = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "flex-start",
+  alignItems: "center",
+  lineHeight: "0rem",
+  mr: {
+    xs: "0rem",
+    sm: "0rem",
+    md: "1rem",
+  },
+  ml: {
+    xs: "0rem",
+    sm: "0rem",
+    md: "1rem",
+  }
+};
+
+export const boxTextTransExp = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "flex-start",
+  alignItems: "center",
+  lineHeight: "0rem",
+  marginLeft: {
+    xs: "0rem",
+    sm: "3rem",
+    md: "2rem",
+  },
+  marginBottom: {
+    xs: "-2rem",
+    sm: "0rem",
+    md: "0rem",
+  }
+};
+
+export const boxTextTransInc = {
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "flex-start",
+  alignItems: "center",
+  lineHeight: "0rem",
+  textAlign: "center",
+  position: "relative",
+  ml: {
+    xs: "0rem",
+    sm: "-8rem",
+    md: "-3rem",
+    lg: "-2.5rem",
+  },
+  mt: {
+    xs: "-1rem",
+    sm: "0rem",
+    md: "0rem",
+  }
+};
+
+export const boxContainerTrans = {
+  backgroundColor: "#b492e0",
+  height: "70%",
+  borderRadius: "1%",
+  overflow: "scroll",
+  boxShadow: "2px 2px 8px #000",
+  mt: "0.5rem",
 };

@@ -1,10 +1,45 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Box, Typography, Container, Button } from "@mui/material";
 import { boxContBalance, containerBalance } from "../utils/styles";
-import { IncomeModal, ExpenseModal } from "./";
+import { IncomeModal, ExpenseModal, Transactions } from "./";
+import axios from "axios";
+import { animated, useSpring } from "@react-spring/web";
 
 const Balance = () => {
-  const balance = 10;
+  const [balance, setBalance] = useState(0);
+
+  const userId = localStorage.getItem("user");
+  const id = JSON.parse(userId);
+
+  const getBalance = async () => {
+    if (!userId) return;
+    const data = await axios.get(`http://localhost:3001/balance/${id}`);
+    let total = 0;
+    data.data.forEach((e) => {
+      total += e.income - e.expense;
+    });
+    setBalance(total);
+  };
+
+  const Number = ({ number }) => {
+    const props = useSpring({
+      number: number,
+      from: { number: 0 },
+      config: { duration: 1000 },
+    });
+    return (
+      <animated.span>{props.number.to((n) => n.toFixed(0))}</animated.span>
+    );
+  };
+
+  useEffect(() => {
+    getBalance();
+    const interval = setInterval(() => {
+      getBalance();
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const [openIncome, setOpenIncome] = useState(false);
   const [openExpense, setOpenExpense] = useState(false);
@@ -21,7 +56,7 @@ const Balance = () => {
           variant="h4"
           sx={{ color: balance < 0 ? "#fc0000" : "#0fe032" }}
         >
-          ${balance}
+          $<Number number={balance} />
         </Typography>
       </Box>
       <Container sx={containerBalance}>
@@ -50,6 +85,7 @@ const Balance = () => {
         >
           Transactions
         </Typography>
+        <Transactions />
       </Container>
     </Box>
   );

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Modal, Box, FormControl, TextField, Checkbox, Button } from "@mui/material";
-import { style, formStyleExpense, boxExpenseContainer, boxInsideExpense } from "../utils/styles";
+import { styleModal, formStyleExpInc, boxExpIncContainer, boxInsideExpInc } from "../utils/styles";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import dayjs from "dayjs";
 import { useNavigate } from "react-router-dom";
@@ -52,9 +52,9 @@ const ExpenseModal = ({ openExpense, setOpenExpense }) => {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box sx={style}>
+      <Box sx={styleModal}>
         <form onSubmit={handleSubmit}>
-          <FormControl sx={formStyleExpense}>
+          <FormControl sx={formStyleExpInc}>
             <TextField
               name="expense"
               type="number"
@@ -62,13 +62,13 @@ const ExpenseModal = ({ openExpense, setOpenExpense }) => {
               required
               value={input.expense}
               onChange={onChange}
-              sx={{width: { xs: "80%", sm: "80%", md: "80%", lg: "50%" }, marginTop: "-25px" }}
+              sx={{width: { xs: "80%", sm: "80%", md: "80%", lg: "50%" }, mt: "-25px" }}
               InputProps={{ sx: { height: "2.5rem", color: "#000" } }}
               InputLabelProps={{ style: { fontSize: "0.8rem", lineHeight: "0.8rem" } }}
             />
-            <Box mt={1} sx={boxExpenseContainer}>
+            <Box mt={1} sx={boxExpIncContainer}>
               {categoriesExpense.map((category) => (
-                <Box key={category.name} sx={boxInsideExpense}>
+                <Box key={category.name} sx={boxInsideExpInc}>
                   <Checkbox
                     sx={{ color: "#eb1d0e", "&.Mui-checked": {  color: "#eb1d0e" } }}
                     type="checkbox"
@@ -101,7 +101,7 @@ const ExpenseModal = ({ openExpense, setOpenExpense }) => {
                   sx: {
                     height: "2rem",
                     color: "#000",
-                    marginTop: {
+                    mt: {
                       xs: "0rem",
                       sm: "2rem",
                       md: "2rem",
@@ -122,7 +122,7 @@ const ExpenseModal = ({ openExpense, setOpenExpense }) => {
               />
             </LocalizationProvider>
             <Button
-              sx={{ marginTop: { xs: "0.5rem", sm: "2rem", md: "2rem", lg: "2rem" } }}
+              sx={{ mt: { xs: "0.5rem", sm: "2rem", md: "2rem", lg: "2rem" } }}
               type="submit"
               variant="contained"
               color="success"

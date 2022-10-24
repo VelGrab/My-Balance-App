@@ -6,3 +6,4 @@ export { default as Login } from './Login';
 export { default as Balance } from './Balance';
 export { default as IncomeModal } from './IncomeModal';
 export { default as ExpenseModal } from './ExpenseModal';
+export { default as Transactions } from './Transactions';
