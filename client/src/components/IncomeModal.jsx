@@ -35,6 +35,7 @@ const IncomeModal = ({ openIncome, setOpenIncome }) => {
       comment: input.comment,
     });
     setInput({ ...(input === "") });
+    window.location.reload()
     handleClose();
   };
 

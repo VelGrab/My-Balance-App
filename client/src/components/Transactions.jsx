@@ -5,7 +5,7 @@ import {
   boxTextTrans,
   boxContainerTrans,
   boxTextTransExp,
-  boxTextTransInc
+  boxTextTransInc,
 } from "../utils/styles";
 import axios from "axios";
 
@@ -23,11 +23,6 @@ const Transactions = () => {
 
   useEffect(() => {
     getTransactions();
-    const interval = setInterval(() => {
-      getTransactions();
-    }, 1000);
-
-    return () => clearInterval(interval);
   }, []);
 
   return (

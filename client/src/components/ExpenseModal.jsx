@@ -35,6 +35,7 @@ const ExpenseModal = ({ openExpense, setOpenExpense }) => {
       comment: input.comment,
     });
     setInput({...input === ""})
+    window.location.reload()
     handleClose()
   };
 

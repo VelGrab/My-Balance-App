@@ -38,11 +38,6 @@ const Balance = () => {
 
   useEffect(() => {
     getBalance();
-    const interval = setInterval(() => {
-      getBalance();
-    }, 1000);
-
-    return () => clearInterval(interval);
   }, []);
 
   return (
