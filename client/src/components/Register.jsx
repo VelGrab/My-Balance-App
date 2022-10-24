@@ -32,7 +32,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:3001/create", input);
+      await axios.post("https://my-balance-app-production.up.railway.app/create", input);
       Swal.fire({
         icon: "success",
         text: "User created, please login.",

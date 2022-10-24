@@ -28,7 +28,7 @@ const ExpenseModal = ({ openExpense, setOpenExpense }) => {
       navigate('/login')
     }
 
-    await axios.post(`http://localhost:3001/balance/expense/${id}`, {
+    await axios.post(`https://my-balance-app-production.up.railway.app/balance/expense/${id}`, {
       expense: input.expense,
       concept: input.concept,
       date: date,

@@ -16,7 +16,7 @@ const Transactions = () => {
 
   const getTransactions = async () => {
     if (!userId) return;
-    const { data } = await axios.get(`http://localhost:3001/balance/${id}`);
+    const { data } = await axios.get(`https://my-balance-app-production.up.railway.app/balance/${id}`);
     let sliceData = data.reverse().slice(0, 10);
     setTransactions(sliceData);
   };

@@ -23,7 +23,7 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const data = await axios.post("http://localhost:3001/login", input);
+      const data = await axios.post("https://my-balance-app-production.up.railway.app/login", input);
       localStorage.setItem("user", JSON.stringify(data.data._id));
       Swal.fire({
         icon: "success",

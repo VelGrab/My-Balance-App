@@ -28,7 +28,7 @@ const IncomeModal = ({ openIncome, setOpenIncome }) => {
       navigate("/login");
     }
 
-    await axios.post(`http://localhost:3001/balance/income/${id}`, {
+    await axios.post(`https://my-balance-app-production.up.railway.app/balance/income/${id}`, {
       income: input.income,
       concept: input.concept,
       date: date,
