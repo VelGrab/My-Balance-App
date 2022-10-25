@@ -131,10 +131,8 @@ router.put("/:userId", async (req, res) => {
 });
 
 /* Deleting the balance of a user. */
-router.delete("/:userId", async (req, res) => {
-  const { userId } = req.params;
-
-  const { id } = req.body;
+router.delete("/:userId/:id", async (req, res) => {
+  const { userId, id  } = req.params;
 
   try {
     const expenseBalance = await Balance.destroy({
