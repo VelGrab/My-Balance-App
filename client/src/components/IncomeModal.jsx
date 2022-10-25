@@ -71,7 +71,7 @@ const IncomeModal = ({ openIncome, setOpenIncome }) => {
               {categoriesIncome.map((category) => (
                 <Box key={category.name} sx={boxInsideExpInc}>
                   <Checkbox
-                    sx={{ color: "#66bd2c", "&.Mui-checked": {  color: "#66bd2c" } }}
+                    sx={{ color: "#66bd2c", "&.Mui-checked": {  color: "#345b02" } }}
                     type="checkbox"
                     name="concept"
                     icon={category.icon}

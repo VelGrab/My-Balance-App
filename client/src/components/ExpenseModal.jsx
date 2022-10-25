@@ -71,7 +71,7 @@ const ExpenseModal = ({ openExpense, setOpenExpense }) => {
               {categoriesExpense.map((category) => (
                 <Box key={category.name} sx={boxInsideExpInc}>
                   <Checkbox
-                    sx={{ color: "#eb1d0e", "&.Mui-checked": {  color: "#eb1d0e" } }}
+                    sx={{ color: "#eb1d0e", "&.Mui-checked": {  color: "#c31509" } }}
                     type="checkbox"
                     name="concept"
                     icon={category.icon}

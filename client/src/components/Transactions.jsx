@@ -6,6 +6,7 @@ import {
   boxContainerTrans,
   boxTextTransExp,
   boxTextTransInc,
+  boxTextTransBtn,
 } from "../utils/styles";
 import axios from "axios";
 
@@ -21,6 +22,12 @@ const Transactions = () => {
     setTransactions(sliceData);
   };
 
+  const handleDelete = async (e) => {
+    const valueId = e.target.value;
+    await axios.delete(`https://my-balance-app-production.up.railway.app/balance/${id}/${valueId}`);
+    getTransactions();
+  };
+
   useEffect(() => {
     getTransactions();
   }, []);
@@ -34,6 +41,7 @@ const Transactions = () => {
               key={e.id}
               sx={boxColorInside}
               bgcolor={e.expense === null ? "#0fe032a2" : "#fc0000a8"}
+              className="boxColorInside"
             >
               <Box sx={boxTextTrans}>
                 <h5 className="text__sub">Comment</h5>
@@ -58,6 +66,15 @@ const Transactions = () => {
               <Box sx={boxTextTrans}>
                 <h5 className="text__sub">Concept</h5>
                 <p className="text__sub__p">{e.concept}</p>
+              </Box>
+              <Box sx={boxTextTransBtn}>
+                <button
+                  value={e.id}
+                  onClick={handleDelete}
+                  className="btn__delete"
+                >
+                  Delete
+                </button>
               </Box>
             </Box>
           );

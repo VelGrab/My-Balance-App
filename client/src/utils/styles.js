@@ -38,7 +38,7 @@ export const containerBalance = {
     lg: "45%",
   },
   height: {
-    xs: "50vh",
+    xs: "55vh",
     sm: "50vh",
     md: "55vh",
   },
@@ -65,6 +65,12 @@ export const formStyleExpInc = {
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "center",
+  mt: {
+    xs: "0rem",
+    sm: "2rem",
+    md: "2rem",
+    lg: "2rem"
+  }
 };
 
 export const boxExpIncContainer = {
@@ -168,8 +174,18 @@ export const boxTextTrans = {
   ml: {
     xs: "0rem",
     sm: "0rem",
-    md: "1rem",
+    md: "0rem",
   }
+};
+
+export const boxTextTransBtn = {
+  display: "flex",
+  flexWrap: "wrap",
+  flexDirection: {
+    xs: "column",
+    sm: "row",
+  },
+  lineHeight: "0rem",
 };
 
 export const boxTextTransExp = {
@@ -180,10 +196,10 @@ export const boxTextTransExp = {
   lineHeight: "0rem",
   marginLeft: {
     xs: "0rem",
-    sm: "3rem",
-    md: "2rem",
+    sm: "2rem",
+    md: "0rem",
   },
-  marginBottom: {
+  mb: {
     xs: "-2rem",
     sm: "0rem",
     md: "0rem",
@@ -196,13 +212,11 @@ export const boxTextTransInc = {
   justifyContent: "flex-start",
   alignItems: "center",
   lineHeight: "0rem",
-  textAlign: "center",
   position: "relative",
   ml: {
     xs: "0rem",
-    sm: "-8rem",
-    md: "-3rem",
-    lg: "-2.5rem",
+    sm: "-3rem",
+    md: "-2rem",
   },
   mt: {
     xs: "-1rem",
@@ -217,5 +231,9 @@ export const boxContainerTrans = {
   borderRadius: "1%",
   overflow: "scroll",
   boxShadow: "2px 2px 8px #000",
-  mt: "0.5rem",
+  mt: {
+    xs: "0rem",
+    sm: "0.5rem",
+    md: "0.5rem"
+  },
 };

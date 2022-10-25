@@ -34,3 +34,33 @@ body {
 .text__sub__p {
   margin-top: 0;
 }
+
+.btn__delete {
+  background-color: #e52020;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+}
+
+.btn__edit {
+  background-color: #a3ba33;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.8rem;
+  margin-right: 0.2rem;
+  cursor: pointer;
+}
+
+.btn__delete:hover {
+  background-color: #b52020;
+}
+
+.btn__edit:hover {
+  background-color: #92a530;
+}
